@@ -20,9 +20,9 @@ It consists in two subprojects:
 
 ## Arduino project
 
-This project contains two parts:
-- The Arduino module firmware which makes it a MIDI USB device [see section Firmware](#firmware).
-- The Arduino code to behave as a MIDI expression pedal [see section Software](#software).
+This project into 2 sub-projects:
+- The Arduino module firmware which makes it a MIDI USB device. [See section Firmware](#firmware).
+- The Arduino code to behave as a MIDI expression pedal. [See section Software](#software).
 
 ### Hardware and schematics
 
@@ -44,6 +44,13 @@ This software is coded in C++-11 with Qt5. It is designed to make some configura
 
 Here comes the list of dependencies for this project.
 
-## Licenses
+## Licenses and credits
 
-Here comes the licences of the components used in this project.
+- Arduino schemas made with [Fritzing](http://fritzing.org/).
+- USB driver made with ATMEL Studio 7 and based on [to be completed].
+- Configuration software made with Qt 5.12.0 community.
+- Graphics:
+    - *to be completed*
+
+## Documentation and references
+- https://www.instructables.com/id/Arduino-USB-MIDI-Interface/
