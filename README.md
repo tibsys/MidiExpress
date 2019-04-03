@@ -1,6 +1,6 @@
 # MidiExpress
 
-MIDIExpress is an USB-MIDI project which offers USB connectivity for Jack expression/volume pedals. 
+MIDIExpress is an USB-MIDI project which offers USB connectivity for expression/volume pedals having only jack connectivity. 
 
 It consists in two subprojects: 
 - An Arduino based device (schematics, firmware and software)
@@ -8,9 +8,15 @@ It consists in two subprojects:
 
 ## Presentation
 
-Here comes a schema of the pedal connection
+![Global architecture of the project](documentation/images/architecture.png)
 
-## Use cases
+## Requirements
+- provide MIDI USB connectivity to an expression with a Jack connector
+- ensure compatibility with all DAWs and MIDI controllers
+- behave as a USB device (not a serial device)
+- provide calibration to the user by discovering values range
+- provide the user with a manual definition of the values range (0-128)
+- provide the user with a choice of the pedal type (expression or volume) and adapt the MIDI message type used
 
 ## Arduino project
 
@@ -20,7 +26,7 @@ This project contains two parts:
 
 ### Hardware and schematics
 
-Here comes a schematics of the hardware used in this project (mainly an Arduino board)
+Here comes a schematics of the hardware used in this project (based on an Arduino NANO board).
 
 ### Firmware
 
@@ -33,3 +39,11 @@ Here comes a description of the software sub-project
 ## Configuration software
 
 This software is coded in C++-11 with Qt5. It is designed to make some configuration in the Arduino board in order to change or fine-tune its behaviour.
+
+## Dependencies
+
+Here comes the list of dependencies for this project.
+
+## Licenses
+
+Here comes the licences of the components used in this project.
