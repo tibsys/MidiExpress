@@ -10,7 +10,7 @@
 //
 uint8_t currentPedalPosition = 0; //[0,255]
 PedalType currentPedalType = PEDAL_TYPE_EXPRESSION;
-uint8_t controlMessageMaxValue = 127; //Depends on the pedal type (volume or expression)
+uint8_t controlMessageMaxValue = MIDI_MAX_EXPRESSION; //Depends on the pedal type (volume or expression)
 uint8_t midiChannel = 1;
 
 //
@@ -22,6 +22,15 @@ void setup() {
   if(!isMemoryInitialised()) {
     initialiseMemory();
   }
+}
+
+void setPedalType(PedalType type) {
+  currentPedalType = type;
+  storePedalType(type);
+  if(type == PEDAL_TYPE_EXPRESSION) 
+    controlMessageMaxValue = MIDI_MAX_EXPRESSION;
+  else
+    controlMessageMaxValue = MIDI_MAX_VOLUME;
 }
 
 //
@@ -38,4 +47,7 @@ void loop() {
   }
 
   //Read incoming MIDI configuration messages
+
+  //Analyse incoming message and make action
+  
 }

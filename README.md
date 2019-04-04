@@ -30,7 +30,7 @@ This project into 2 sub-projects:
 
 ### Firmware
 
-Here comes a description of the firmware sub-project
+The firmware is designed to make the Arduino considered as a MIDI-USB device instead of a USB-Serial device. It is based on the project xxx of yyy.
 
 ### Software
 
