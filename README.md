@@ -21,12 +21,12 @@ It consists in two subprojects:
 ## Arduino project
 
 This project into 2 sub-projects:
-- The Arduino module firmware which makes it a MIDI USB device. [See section Firmware](#firmware).
-- The Arduino code to behave as a MIDI expression pedal. [See section Software](#software).
+- The Arduino module firmware recognized as a MIDI USB device. [See section Firmware](#firmware).
+- The Arduino code for MIDI messaging. [See section Software](#software).
 
 ### Hardware and schematics
 
-Here comes a schematics of the hardware used in this project (based on an Arduino NANO board).
+<img src="documentation/images/board_schematics.png" width=400/>
 
 ### Firmware
 
@@ -54,3 +54,10 @@ Here comes the list of dependencies for this project.
 
 ## Documentation and references
 - https://www.instructables.com/id/Arduino-USB-MIDI-Interface/
+- http://www.takachi-enclosure.com/data/c16-17/MX.pdf
+- http://www.takachi-enclosure.com/data/c16-17/LCS.pdf
+- https://fr.farnell.com/lumberg/klb-3/embase-femelle-chassis-6-35mm/dp/1217017?gclid=Cj0KCQjw1pblBRDSARIsACfUG13XFAomM-6CBaBJiAR4kC5Tq0doytaKu7zBYqhUrNV_VvNbJfvgU0gaAuHSEALw_wcB&gross_price=true&mckv=1lVx1uZ4_dc|pcrid|80993875142|&CAWELAID=120185620000056177&CAGPSPN=pla&CAAGID=13038046742&CMP=KNC-GFR-GEN-SHOPPING-1217017&CATCI=pla-134775292622
+- http://www.takachi-enclosure.com/data/c16-17/2017vol3_21-23.pdf
+- http://www.takachi-enclosure.com/data/c16-17/SU.pdf
+- http://www.takachi-enclosure.com/data/c16-17/SW.pdf
+- 
