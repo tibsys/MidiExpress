@@ -1,42 +1,71 @@
 # MidiExpress
 
-MIDIExpress is an USB-MIDI project which offers USB connectivity for expression/volume pedals having only jack connectivity. 
+MIDIExpress is a MIDI-PC interface originaly designed to connect an expression pedal with only Jack connector to a PC.
 
-It consists in two subprojects: 
-- An Arduino based device (schematics, firmware and software)
-- A small configuration application
+At the end of prototyping, it appeared that there should be two devices:
+- a Jack-USB device which can be directly connected to a PC
+- a Jack-DIN device which can be connected to another MIDI device or to a PC usin a MIDI-USB adapter
+
+## Licensing
+
+The design and source codes are provided freely under a close licence. It makes you able to implement the whole project for your own usage but not to sell it.
 
 ## Presentation
 
-![Global architecture of the project](documentation/images/architecture.png)
+The project contains an electronic part, a software part (firmware and MIDI controller) and an enclosure part.
 
-## Requirements
-- provide MIDI USB connectivity to an expression with a Jack connector
-- ensure compatibility with all DAWs and MIDI controllers
-- behave as a USB device (not a serial device)
-- provide calibration to the user by discovering values range
-- provide the user with a manual definition of the values range (0-128)
-- provide the user with a choice of the pedal type (expression or volume) and adapt the MIDI message type used
+### Electronic
 
-## Arduino project
-
-This project into 2 sub-projects:
-- The Arduino module firmware recognized as a MIDI USB device. [See section Firmware](#firmware).
-- The Arduino code for MIDI messaging. [See section Software](#software).
-
-### Hardware and schematics
-
-<img src="documentation/images/board_schematics.png" width=400/>
+- Jack-DIN is based on Arduino nano (clones compatible) with no specific firmware
+- Jack-USB is based on ATMega 32u4 (Arduino micro, esplora, leonardo and clones) or based on a ATMega8 with additional components and an USB firmware.
 
 ### Firmware
 
-The firmware is designed to make the Arduino considered as a MIDI-USB device instead of a USB-Serial device. It is based on the project xxx of yyy.
+Only the Jack-USB needs a specific firmware if using an ATMega8. More details to come.
 
 ### Software
 
+The software is fully based on Arduino APIs and can be upgraded using an additionnal software provided later.
+
+## Architecture
+
+### Jack-USB
+![Global architecture of the project](documentation/images/architecture.png)
+
+### Jack-DIN
+Here comes the schema of the architecture of the Jack-DIN project.
+
+## Requirements
+
+### All devices
+- provide PC connectivity to an expression with a Jack connector
+- ensure compatibility with all DAWs and MIDI controllers
+- provide calibration to the user by discovering values range (learn mode)
+- provide the user with a manual definition of the values range (0-128)
+- provide the user with a choice of the pedal type (expression or volume) and adapt the MIDI message type used
+
+### Jack-USB device
+- behave as a USB device (not a serial device)
+
+## Hardware design
+
+### Jack-USB
+
+<img src="documentation/images/board_schematics.png" width=400/>
+
+### Jack-DIN
+
+## Software design
+
+### Firmware
+
+More details to come.
+
+### Arduino software
+
 Here comes a description of the software sub-project
 
-## Configuration software
+### Configuration software
 
 This software is coded in C++-11 with Qt5. It is designed to make some configuration in the Arduino board in order to change or fine-tune its behaviour.
 
