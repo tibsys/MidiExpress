@@ -2,58 +2,66 @@
 
 MIDIExpress is a MIDI-PC interface originaly designed to connect an expression pedal with only Jack connector to a PC.
 
-At the end of prototyping, it appeared that there should be two devices:
-- a Jack-USB device which can be directly connected to a PC
-- a Jack-DIN device which can be connected to another MIDI device or to a PC usin a MIDI-USB adapter
+Eventually, we decided to create 3 devices:
+- a USB-MIDI expression pedal which can be directly connected to a PC.
+- a Jack-USB device which is able to connect a Jack pedal to a PC.
+- a Jack-DIN device which is able to connect a Jack pedal to a MIDI controller.
 
 ## Licensing
 
-The design and source codes are provided freely under a close licence. It makes you able to implement the whole project for your own usage but not to sell it.
+The design and source codes are provided freely under a closed licence. It makes you able to implement the whole project for your own usage but not to sell it.
+If you want to use it in a commercial project please contact me at tristan.israel@tibsys.com.
 
-## Presentation
+## Cost
 
-The project contains an electronic part, a software part (firmware and MIDI controller) and an enclosure part.
+Estimated cost of each device is detailed in [this page](costs.md). 
 
-### Electronic
-
-- Jack-DIN is based on Arduino nano (clones compatible) with no specific firmware
-- Jack-USB is based on ATMega 32u4 (Arduino micro, esplora, leonardo and clones) or based on a ATMega8 with additional components and an USB firmware.
-
-### Firmware
-
-Only the Jack-USB needs a specific firmware if using an ATMega8. More details to come.
-
-### Software
-
-The software is fully based on Arduino APIs and can be upgraded using an additionnal software provided later.
-
-## Architecture
-
-### Jack-USB
-![Global architecture of the project](documentation/images/architecture.png)
-
-### Jack-DIN
-Here comes the schema of the architecture of the Jack-DIN project.
+You can buy prebuilt devices by sending an email to tristan.israel@tibsys.com.
 
 ## Requirements
 
-### All devices
 - provide PC connectivity to an expression with a Jack connector
 - ensure compatibility with all DAWs and MIDI controllers
 - provide calibration to the user by discovering values range (learn mode)
 - provide the user with a manual definition of the values range (0-128)
 - provide the user with a choice of the pedal type (expression or volume) and adapt the MIDI message type used
+- provide upgrade capabilities (using USB)
 
-### Jack-USB device
-- behave as a USB device (not a serial device)
+## Presentation
 
-## Hardware design
+The project consists in an electronic device which is responsible of converting the pedal into a MIDI device. 
 
-### Jack-USB
+### USB-MIDI expression pedal
+
+![USB-MIDI expression pedal based on M-AUDIO EX-P](documentation/images/maudio_exp.png)
+
+The USB-MIDI expression pedal is based on an M-AUDIO EX-P expression pedal (around 16 Euros on Amazon). The electronic device (see Jack-USB section) is embedded into the pedal and the original Jack cable is replaced with a USB cable.
+
+This device is powered by USB.
+
+> Architecture schema will be added later...
+
+### Jack-USB connector
+
+_The design is not fixed yet_
+
+![Global architecture of the project](documentation/images/architecture.png)
+
+The Jack-USB device is based on an Arduino ATmega32u4 board (Arduino micro like) and a Jack female connector enclosed in an OEM enclosure.
+
+This device is powered by USB.
 
 <img src="documentation/images/board_schematics.png" width=400/>
 
-### Jack-DIN
+### Jack-DIN connector
+
+_The design is not fixed yet_
+
+The Jack-DIN device is based on an Arduino ATmega8 processor, a Jack female connector and a DIN male cable.
+
+This device is powered either by USB (_but it is not a USB device_) or batteries (4xAAA).
+
+> Architecture schema will be added later...
 
 ## Software design
 
@@ -61,13 +69,13 @@ Here comes the schema of the architecture of the Jack-DIN project.
 
 More details to come.
 
-### Arduino software
+### Upgrade software
 
-Here comes a description of the software sub-project
+This software is coded in C++-11 with Qt5. It is designed to make some configuration in the Arduino board in order to change or fine-tune its behaviour.
 
 ### Configuration software
 
-This software is coded in C++-11 with Qt5. It is designed to make some configuration in the Arduino board in order to change or fine-tune its behaviour.
+This software is coded in C++-11 with JUCE and can be used as a standalone application or a VST/AU plugin so you can record different settings in your patches.
 
 ## Dependencies
 
