@@ -11,5 +11,18 @@
 - https://github.com/obdev/v-usb
 - http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega48A-PA-88A-PA-168A-PA-328-P-DS-DS40002061A.pdf
 
+## USB Firmware
+- https://codeandlife.com/2017/09/17/5-usb-midi-adapter-with-atmega32u4/
+
 ## A étudier
 - http://codeandlife.com/2017/09/17/5-usb-midi-adapter-with-atmega32u4/#more-2071
+
+## Fasteners
+- https://docs-emea.rs-online.com/webdocs/0314/0900766b803148ae.pdf
+
+## Passe-fil
+- https://fr.rs-online.com/web/p/passe-cables-en-caoutchouc/1879605/
+
+## Cables
+- https://fr.rs-online.com/web/p/cables-usb/3248362/
+- https://fr.rs-online.com/web/p/products/1216571/?grossPrice=Y&cm_mmc=FR-PLA-DS3A-_-google-_-PLA_FR_FR_Automatisme_Et_Contrôle_De_Process-_-Boutons-Poussoirs_And_Voyant_Lumineux_Et_Boîtes_À%C2%A0Boutons_Industriels%7CBoîtes_À%C2%A0Boutons_Équipées-_-PRODUCT_GROUP&matchtype=&pla-458695438936&gclid=EAIaIQobChMI7JeMr4jS4QIVRPhRCh3LxATJEAQYAyABEgKSVPD_BwE&gclsrc=aw.ds

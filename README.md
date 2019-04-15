@@ -7,6 +7,16 @@ Eventually, we decided to create 3 devices:
 - a Jack-USB device which is able to connect a Jack pedal to a PC.
 - a Jack-DIN device which is able to connect a Jack pedal to a MIDI controller.
 
+## Current status
+
+The project is currently under design. The proof-of-concept has been realized and we are now designing the first device (USB-MIDI expression pedal).
+
+- USB-MIDI expression pedal: under design
+- Jack-USB: not started
+- Jack-DIN: not started
+
+Status updated on 2019-04-15.
+
 ## Licensing
 
 The design and source codes are provided freely under a closed licence. It makes you able to implement the whole project for your own usage but not to sell it.
@@ -39,7 +49,13 @@ The USB-MIDI expression pedal is based on an M-AUDIO EX-P expression pedal (arou
 
 This device is powered by USB.
 
-> Architecture schema will be added later...
+> The original M-Audio EX-P pedal contains a switch for polarity inversion and a potentiometer for the sensitivity.
+
+![Original M-Audio EX-P pedal schematic](documentation/images/maudio_exp_schematic.png)
+
+> We disabled the polarity switch and kept the sensitivity potentiometer to give manual control on the expression range.
+
+![Modified M-Audio EX-P pedal schematic](documentation/images/USB-MIDI_schematics.png)
 
 ### Jack-USB connector
 
