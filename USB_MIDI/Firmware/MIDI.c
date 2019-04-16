@@ -28,10 +28,6 @@
   this software.
 */
 
-//First shoot of the firmware
-//Based on article: https://codeandlife.com/2017/09/17/5-usb-midi-adapter-with-atmega32u4/
-//This code will be replaced with the firmware of the MIDI pedal
-
 /** \file
  *
  *  Main source file for the MIDI demo. This file contains the main tasks of
