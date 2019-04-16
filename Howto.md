@@ -1,5 +1,10 @@
 # How to
 
+This page gathers some helpful documentation related to AVR, MIDI and enclosures.
+
+## MIDI how tos
+- https://www.arduino.cc/en/Tutorial/MidiDevice
+
 ## Flash the firwmare into an Arduino Nano
 - https://skyduino.wordpress.com/2011/12/02/tutoriel-avrdude-en-ligne-de-commande/
 - https://tutorial.cytron.io/2015/02/05/using-avr-usbasp-to-program-arduino/
@@ -26,3 +31,6 @@
 ## Cables
 - https://fr.rs-online.com/web/p/cables-usb/3248362/
 - https://fr.rs-online.com/web/p/products/1216571/?grossPrice=Y&cm_mmc=FR-PLA-DS3A-_-google-_-PLA_FR_FR_Automatisme_Et_Contrôle_De_Process-_-Boutons-Poussoirs_And_Voyant_Lumineux_Et_Boîtes_À%C2%A0Boutons_Industriels%7CBoîtes_À%C2%A0Boutons_Équipées-_-PRODUCT_GROUP&matchtype=&pla-458695438936&gclid=EAIaIQobChMI7JeMr4jS4QIVRPhRCh3LxATJEAQYAyABEgKSVPD_BwE&gclsrc=aw.ds
+
+## AVR how tos
+- https://maker.pro/custom/tutorial/how-to-take-analog-readings-with-an-avr-microcontroller
