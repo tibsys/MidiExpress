@@ -100,17 +100,6 @@ Here comes the list of dependencies for this project.
 ## Licenses and credits
 
 - Arduino schemas made with [Fritzing](http://fritzing.org/).
-- USB driver made with ATMEL Studio 7 and based on [to be completed].
-- Configuration software made with Qt 5.12.0 community.
+- Configuration software made with Qt 5.12.0 community edition.
 - Graphics:
     - *to be completed*
-
-## Documentation and references
-- https://www.instructables.com/id/Arduino-USB-MIDI-Interface/
-- http://www.takachi-enclosure.com/data/c16-17/MX.pdf
-- http://www.takachi-enclosure.com/data/c16-17/LCS.pdf
-- https://fr.farnell.com/lumberg/klb-3/embase-femelle-chassis-6-35mm/dp/1217017?gclid=Cj0KCQjw1pblBRDSARIsACfUG13XFAomM-6CBaBJiAR4kC5Tq0doytaKu7zBYqhUrNV_VvNbJfvgU0gaAuHSEALw_wcB&gross_price=true&mckv=1lVx1uZ4_dc|pcrid|80993875142|&CAWELAID=120185620000056177&CAGPSPN=pla&CAAGID=13038046742&CMP=KNC-GFR-GEN-SHOPPING-1217017&CATCI=pla-134775292622
-- http://www.takachi-enclosure.com/data/c16-17/2017vol3_21-23.pdf
-- http://www.takachi-enclosure.com/data/c16-17/SU.pdf
-- http://www.takachi-enclosure.com/data/c16-17/SW.pdf
-- 

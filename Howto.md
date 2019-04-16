@@ -34,3 +34,13 @@ This page gathers some helpful documentation related to AVR, MIDI and enclosures
 
 ## AVR how tos
 - https://maker.pro/custom/tutorial/how-to-take-analog-readings-with-an-avr-microcontroller
+
+## Extra documentation
+- https://www.instructables.com/id/Arduino-USB-MIDI-Interface/
+- http://www.takachi-enclosure.com/data/c16-17/MX.pdf
+- http://www.takachi-enclosure.com/data/c16-17/LCS.pdf
+- https://fr.farnell.com/lumberg/klb-3/embase-femelle-chassis-6-35mm/dp/1217017?gclid=Cj0KCQjw1pblBRDSARIsACfUG13XFAomM-6CBaBJiAR4kC5Tq0doytaKu7zBYqhUrNV_VvNbJfvgU0gaAuHSEALw_wcB&gross_price=true&mckv=1lVx1uZ4_dc|pcrid|80993875142|&CAWELAID=120185620000056177&CAGPSPN=pla&CAAGID=13038046742&CMP=KNC-GFR-GEN-SHOPPING-1217017&CATCI=pla-134775292622
+- http://www.takachi-enclosure.com/data/c16-17/2017vol3_21-23.pdf
+- http://www.takachi-enclosure.com/data/c16-17/SU.pdf
+- http://www.takachi-enclosure.com/data/c16-17/SW.pdf
+- 

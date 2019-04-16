@@ -13,7 +13,7 @@ _Prices include VAT 20%_
 |---------------|----------|-----|---------------|
 | Total         | 24.50    | 1   | 24.50         |
 
-(1) : Mini-B USB to USB A
+(1) : Micro-B USB to USB A
 
 ### Jack-USB connector
 

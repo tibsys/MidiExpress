@@ -19,14 +19,15 @@ F_USB        = $(F_CPU)
 OPTIMIZATION = s
 TARGET       = MIDI
 SRC          = $(TARGET).c Descriptors.c $(LUFA_SRC_USB) $(LUFA_SRC_USBCLASS)
-LUFA_PATH    = ../../lufa/LUFA
+# LUFA_PATH    = ../../lufa/LUFA
+LUFA_PATH	 = /Users/tristan/Downloads/lufa-LUFA-170418/LUFA
 CC_FLAGS     = -DUSE_LUFA_CONFIG_HEADER -IConfig/
 LD_FLAGS     =
 
 # Arduino Leanardo compatible flashing
 AVRDUDE = avrdude
 AVRDUDE_PROGRAMMER = avr109
-AVRDUDE_PORT = COM5
+AVRDUDE_PORT = /dev/cu.usbmodem1421
 
 # Default target
 all:
