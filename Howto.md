@@ -27,12 +27,16 @@ This page gathers some helpful documentation related to AVR, MIDI and enclosures
 ## Fasteners
 - https://docs-emea.rs-online.com/webdocs/0314/0900766b803148ae.pdf
 
-## Passe-fil
+## Grommets
 - https://fr.rs-online.com/web/p/passe-cables-en-caoutchouc/1879605/
 
-## Cables
-- https://fr.rs-online.com/web/p/cables-usb/3248362/
-- https://fr.rs-online.com/web/p/products/1216571/?grossPrice=Y&cm_mmc=FR-PLA-DS3A-_-google-_-PLA_FR_FR_Automatisme_Et_Contrôle_De_Process-_-Boutons-Poussoirs_And_Voyant_Lumineux_Et_Boîtes_À%C2%A0Boutons_Industriels%7CBoîtes_À%C2%A0Boutons_Équipées-_-PRODUCT_GROUP&matchtype=&pla-458695438936&gclid=EAIaIQobChMI7JeMr4jS4QIVRPhRCh3LxATJEAQYAyABEgKSVPD_BwE&gclsrc=aw.ds
+## Cables and connectors
+- [Bare USB-A, 5.26 Euros](https://fr.rs-online.com/web/p/cables-usb/3248362/)
+- [USB-A to Mini-B, 2.60 Euros](https://www.amazon.fr/Vitesse-Broches-Alimentation-Donn%C3%A9es-Cordon/dp/B00L365PY6/ref=sr_1_19?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=usb%2Ba%2Bd%C3%A9nud%C3%A9&qid=1555501109&s=gateway&sr=8-19&th=1)
+- [Micro-B Connector, 1.38 Euros](https://fr.rs-online.com/web/p/connecteurs-micro-usb/1360889/)
+- [Micro-B shield, 0.285 Euros](https://fr.rs-online.com/web/p/accessoires-de-connecteur-usb/1362300/)
+- [USB-A to Mini-B, 3.60 Euros](https://fr.rs-online.com/web/p/products/1216571/?grossPrice=Y&cm_mmc=FR-PLA-DS3A-_-google-_-PLA_FR_FR_Automatisme_Et_Contrôle_De_Process-_-Boutons-Poussoirs_And_Voyant_Lumineux_Et_Boîtes_À%C2%A0Boutons_Industriels%7CBoîtes_À%C2%A0Boutons_Équipées-_-PRODUCT_GROUP&matchtype=&pla-458695438936&gclid=EAIaIQobChMI7JeMr4jS4QIVRPhRCh3LxATJEAQYAyABEgKSVPD_BwE&gclsrc=aw.ds)
+- [USB-A to Micro-B, 4.80 Euros](https://fr.rs-online.com/web/p/cables-usb/1828496/)
 
 ## AVR how tos
 - https://maker.pro/custom/tutorial/how-to-take-analog-readings-with-an-avr-microcontroller
@@ -46,3 +50,7 @@ This page gathers some helpful documentation related to AVR, MIDI and enclosures
 - http://www.takachi-enclosure.com/data/c16-17/SU.pdf
 - http://www.takachi-enclosure.com/data/c16-17/SW.pdf
 - 
+
+## Notes
+- M-Audio EX P USB cable is 1/4"
+- M-Audio EX P potentiometer is 10k linear
