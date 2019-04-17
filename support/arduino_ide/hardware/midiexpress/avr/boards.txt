@@ -1,0 +1,29 @@
+micromidiexpress.name=Arduino Micro MidiExpress
+
+micromidiexpress.upload.tool=arduino:avrdude
+micromidiexpress.upload.protocol=avr109
+micromidiexpress.upload.maximum_size=28672
+micromidiexpress.upload.maximum_data_size=2560
+micromidiexpress.upload.speed=57600
+micromidiexpress.upload.disable_flushing=true
+micromidiexpress.upload.use_1200bps_touch=true
+micromidiexpress.upload.wait_for_upload_port=true
+micromidiexpress.bootloader.tool=arduino:avrdude
+micromidiexpress.bootloader.low_fuses=0xff
+micromidiexpress.bootloader.high_fuses=0xd8
+micromidiexpress.bootloader.extended_fuses=0xcb
+micromidiexpress.bootloader.file=caterina/Caterina-Micro.hex
+micromidiexpress.bootloader.unlock_bits=0x3F
+micromidiexpress.bootloader.lock_bits=0x2F
+micromidiexpress.build.mcu=atmega32u4
+micromidiexpress.build.f_cpu=16000000L
+
+micromidiexpress.build.vid=0x2340
+micromidiexpress.build.pid=0x8030
+micromidiexpress.build.usb_product="Midi Expression Pedal"
+
+micromidiexpress.build.board=AVR_MICRO
+micromidiexpress.build.core=arduino:arduino
+micromidiexpress.build.variant=arduino:micro
+micromidiexpress.build.extra_flags={build.usb_flags}
+

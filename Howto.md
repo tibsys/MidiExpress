@@ -16,8 +16,10 @@ This page gathers some helpful documentation related to AVR, MIDI and enclosures
 - https://github.com/obdev/v-usb
 - http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega48A-PA-88A-PA-168A-PA-328-P-DS-DS40002061A.pdf
 
-## USB Firmware
+## USB 
 - https://codeandlife.com/2017/09/17/5-usb-midi-adapter-with-atmega32u4/
+- http://liveelectronics.musinou.net/MIDIdeviceName.php
+- http://pid.codes
 
 ## A étudier
 - http://codeandlife.com/2017/09/17/5-usb-midi-adapter-with-atmega32u4/#more-2071

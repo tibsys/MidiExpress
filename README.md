@@ -11,7 +11,7 @@ Eventually, we decided to create 3 devices:
 
 The project is currently under design. The proof-of-concept has been realized and we are now designing the first device (USB-MIDI expression pedal).
 
-- USB-MIDI expression pedal: under design
+- USB-MIDI expression pedal: under development
 - Jack-USB: not started
 - Jack-DIN: not started
 
@@ -21,6 +21,10 @@ Status updated on 2019-04-15.
 
 The design and source codes are provided freely under a closed licence. It makes you able to implement the whole project for your own usage but not to sell it.
 If you want to use it in a commercial project please contact me at tristan.israel@tibsys.com.
+
+## IMPORTANT: USB device PID and VID
+
+The current values for PID and VID are random values (PID=0x2340, VID=Ox8030). They are not registered with USB-FI. You may override these values but your are not allowed to sell a product using these ID.
 
 ## Cost
 
@@ -32,10 +36,7 @@ You can buy prebuilt devices by sending an email to tristan.israel@tibsys.com.
 
 - provide PC connectivity to an expression with a Jack connector
 - ensure compatibility with all DAWs and MIDI controllers
-- provide calibration to the user by discovering values range (learn mode)
-- provide the user with a manual definition of the values range (0-128)
-- provide the user with a choice of the pedal type (expression or volume) and adapt the MIDI message type used
-- provide upgrade capabilities (using USB)
+- provide firmware update capabilities (using USB)
 
 ## Presentation
 
@@ -43,41 +44,17 @@ The project consists in an electronic device which is responsible of converting 
 
 ### USB-MIDI expression pedal
 
-![USB-MIDI expression pedal based on M-AUDIO EX-P](documentation/images/maudio_exp.png)
-
-The USB-MIDI expression pedal is based on an M-AUDIO EX-P expression pedal (around 16 Euros on Amazon). The electronic device (see Jack-USB section) is embedded into the pedal and the original Jack cable is replaced with a USB cable.
-
-This device is powered by USB.
-
-> The original M-Audio EX-P pedal contains a switch for polarity inversion and a potentiometer for the sensitivity.
-
-![Original M-Audio EX-P pedal schematic](documentation/images/maudio_exp_schematic.png)
-
-> We disabled the polarity switch and kept the sensitivity potentiometer to give manual control on the expression range.
-
-![Modified M-Audio EX-P pedal schematic](documentation/images/USB-MIDI_schematics.png)
+[See README.md for this sub-project](USB_MIDI/README.md)
 
 ### Jack-USB connector
 
 _The design is not fixed yet_
 
-![Global architecture of the project](documentation/images/architecture.png)
-
-The Jack-USB device is based on an Arduino ATmega32u4 board (Arduino micro like) and a Jack female connector enclosed in an OEM enclosure.
-
-This device is powered by USB.
-
-<img src="documentation/images/board_schematics.png" width=400/>
+[See README.md for this sub-project](JACK_USB/README.md)
 
 ### Jack-DIN connector
 
-_The design is not fixed yet_
-
-The Jack-DIN device is based on an Arduino ATmega8 processor, a Jack female connector and a DIN male cable.
-
-This device is powered either by USB (_but it is not a USB device_) or batteries (4xAAA).
-
-> Architecture schema will be added later...
+[See README.md for this sub-project](JACK_DIN/README.md)
 
 ## Software design
 

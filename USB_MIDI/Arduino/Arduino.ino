@@ -1,113 +1,92 @@
 /*
-   This examples shows how to make a simple seven keys MIDI keyboard with volume control
+   This program manages the USB expression pedal.
 
-   Created: 4/10/2015
-   Author: Arturo Guadalupi <a.guadalupi@arduino.cc>
+   The hardware is based on
+   - M-AUDIO EX-P expression pedal
+   - Arduino Pro Micro board
+
+   The pedal is based on a voltage divider. We send the current VCC (+5V) in the pedal
+   circuit and mesure it on the A0 analog PIN.
+   Depending on the pedal position, the current measured on A0 is between 2.5V (pedal down) and 5V (pedal up).
+   The position is translated to a value between 0 and 127 using the MIDI CC 4.
+
+   Created: 2019-04-17
+   Version: 1.0
+   Author: Tristan Israël <tristan.israel@tibsys.com>
    
-   http://www.arduino.cc/en/Tutorial/MidiDevice
+   https://www.tibsys.com/
 */
 
-#include "MIDIUSB.h"
-#include "PitchToNote.h"
-#define NUM_BUTTONS  7
+#include <MIDIUSB.h>
 
-const uint8_t button1 = 2;
-const uint8_t button2 = 3;
-const uint8_t button3 = 4;
-const uint8_t button4 = 5;
-const uint8_t button5 = 6;
-const uint8_t button6 = 7;
-const uint8_t button7 = 8;
+/**
+ * Constants
+ */
+const bool DEBUG = false;
+const int PEDAL_POSITION_INPUT = 0;  //A0 input
+const uint8_t PEDAL_MAX_CURRENT = 1023; //Maximum value read on the input pin
+const uint8_t PEDAL_MIN_CURRENT = PEDAL_MAX_CURRENT/2; //Minimum value read on the input pin
+const uint8_t PEDAL_MAX_MIDI = 127; //Maximum value in MIDI CC
+const uint8_t PEDAL_MIN_MIDI = 0; //Minimum value in MIDI CC
+const uint8_t MIDI_CC_FOOTCONTROLLER = 4; //Value for Foot Controller Control Change message
 
-const int intensityPot = 0;  //A0 input
-
-const uint8_t buttons[NUM_BUTTONS] = {button1, button2, button3, button4, button5, button6, button7};
-const byte notePitches[NUM_BUTTONS] = {C3, D3, E3, F3, G3, A3, B3};
-
-uint8_t notesTime[NUM_BUTTONS];
-uint8_t pressedButtons = 0x00;
-uint8_t previousButtons = 0x00;
-uint8_t intensity;
+/** 
+ * Variables
+ */
+uint8_t currentPedalPosition = 0;
 
 void setup() {
-  for (int i = 0; i < NUM_BUTTONS; i++)
-    pinMode(buttons[i], INPUT_PULLUP);
+  if(DEBUG) {
+    Serial.begin(115200);
+    Serial.println("MIDI Expression pedal initialized and ready!");
+  }
 }
-
 
 void loop() {
-  readButtons();
-  readIntensity();
-  playNotes();
+  //Read the current position of the pedal
+  uint8_t pedalPosition = readPosition();
+
+  //If position changed, send the new value to the MIDI controller
+  if(pedalPosition != currentPedalPosition) {
+    sendPedalPosition(pedalPosition);
+    currentPedalPosition = pedalPosition;    
+  } 
+
+  if(DEBUG) {
+      Serial.print("Current pedal position=");
+      Serial.println(currentPedalPosition);
+    }
 }
 
-// First parameter is the event type (0x0B = control change).
-// Second parameter is the event type, combined with the channel.
-// Third parameter is the control number number (0-119).
-// Fourth parameter is the control value (0-127).
+/**
+ * Sends the pedal position to the MIDI controller
+ */
+void sendPedalPosition(uint8_t position) {
+  sendControlChange(MIDI_CC_FOOTCONTROLLER, position);
+}
 
-void controlChange(byte channel, byte control, byte value) {
-  midiEventPacket_t event = {0x0B, 0xB0 | channel, control, value};
+/**
+ * Sends a control change message to the MIDI controller
+ * control - the CC message identifier (0-127)
+ * value - the value associated to the message (0-127)
+ */
+void sendControlChange(byte control, byte value) {
+  midiEventPacket_t event = {0xB, 0xB0, control, value};
   MidiUSB.sendMIDI(event);
 }
 
-void readButtons()
+/**
+ * Reads the position of the pedal in the MIDI expression range (0-127).
+ *
+ * Because the pedal is a voltage divider, the value measured is between 512 and 1023.
+ * The lowest value (512) is converted into the MIDI value 0.
+ * The highest value (1023) is converted into the MIDI value 127.
+ * The values in the range [512-1023] are converted into MIDI values in the range [0-127].
+ */
+uint8_t readPosition()
 {
-  for (int i = 0; i < NUM_BUTTONS; i++)
-  {
-    if (digitalRead(buttons[i]) == LOW)
-    {
-      bitWrite(pressedButtons, i, 1);
-      Serial.println("button low");
-      delay(50);
-    }
-    else
-      bitWrite(pressedButtons, i, 0);
-  }
-}
-
-void readIntensity()
-{
-  int val = analogRead(intensityPot);
-  intensity = (uint8_t) (map(val, 0, 1023, 0, 127));
-  //Serial.print("intensity:");
-  //Serial.println(intensity);
-}
-
-void playNotes()
-{
-  for (int i = 0; i < NUM_BUTTONS; i++)
-  {
-    if (bitRead(pressedButtons, i) != bitRead(previousButtons, i))
-    {
-      if (bitRead(pressedButtons, i))
-      {
-        bitWrite(previousButtons, i , 1);
-        noteOn(0, notePitches[i], intensity);
-        MidiUSB.flush();
-      }
-      else
-      {
-        bitWrite(previousButtons, i , 0);
-        noteOff(0, notePitches[i], 0);
-        MidiUSB.flush();
-      }
-    }
-  }
-}
-
-// First parameter is the event type (0x09 = note on, 0x08 = note off).
-// Second parameter is note-on/note-off, combined with the channel.
-// Channel can be anything between 0-15. Typically reported to the user as 1-16.
-// Third parameter is the note number (48 = middle C).
-// Fourth parameter is the velocity (64 = normal, 127 = fastest).
-
-void noteOn(byte channel, byte pitch, byte velocity) {
-  midiEventPacket_t noteOn = {0x09, 0x90 | channel, pitch, velocity};
-  MidiUSB.sendMIDI(noteOn);
-}
-
-void noteOff(byte channel, byte pitch, byte velocity) {
-  midiEventPacket_t noteOff = {0x08, 0x80 | channel, pitch, velocity};
-  MidiUSB.sendMIDI(noteOff);
+  int val = analogRead(PEDAL_POSITION_INPUT);
+  uint8_t pedalPosition = (uint8_t) (map(val, PEDAL_MIN_CURRENT, PEDAL_MAX_CURRENT, PEDAL_MIN_MIDI, PEDAL_MAX_MIDI));
+  //Serial.print("pedal position:");
+  //Serial.println(pedalPosition);
 }
