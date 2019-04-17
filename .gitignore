@@ -34,7 +34,7 @@
 *.app
 *.i*86
 *.x86_64
-*.hex
+# *.hex //Needed for Arduino firmwares
 
 # Debug files
 *.dSYM/

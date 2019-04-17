@@ -11,7 +11,7 @@ Eventually, we decided to create 3 devices:
 
 The project is currently under design. The proof-of-concept has been realized and we are now designing the first device (USB-MIDI expression pedal).
 
-- USB-MIDI expression pedal: under development
+- USB-MIDI expression pedal: version 1.0
 - Jack-USB: not started
 - Jack-DIN: not started
 

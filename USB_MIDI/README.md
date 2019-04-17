@@ -34,37 +34,39 @@ All messages are ignored.
 
 ## Mounting procedure
 
+> All the soldering should be done on the top side of the Arduino in order to be able to stick it to the bottom of the pedal.
+
 - Open the M-AUDIO pedal by unscrewing all screws
 
 ![Inside not-modified M-AUDIO EX-P pedal](/documentation/images/maudio_inside.png)
 
-- Desolder the polarity switch (1), unscrew and remove it
-- Cut the JACK cable (C) and remove it
+- Desolder the polarity switch wires (1)
+- Cut the JACK cable and remove the grommet, we will reuse it later
 
-![After removing the polarity switch](/documentation/images/maudio_step1.png)
+![Get the grommet](/documentation/images/maudio_cable_cut_and_reuse.png)
 
 - Solder the black wire (4) of sensitivity potentiometer (3) to Arduino GND
-
-![After GND soldering](/documentation/images/maudio_step2.png)
-
 - Solder the black wire (5) of expression pedal potentiometer (2) to Arduino VCC
 > The wire is connected to the input of the potentiometer
 - Solder the black wire (6) of expression pedal potentiometer (2) to Arduino A0 
 > The wire is connected to the output of the potentiometer
 
-![After VCC and A0 soldering](/documentation/images/maudio_step3.png)
-
 - Insert the bare USB cable into the grommet and solder the Micro USB connector
+- Add some black tape on the USB cable in order to fix it with the grommet (the tape sticky side on the cable, the cable will adhere to the grommet by friction)
+- Insert the Micro USB connector into the Arduino USB port
+- Stick the Arduino board to the bottom of the pedal with some good melted glue (and let it dry)
 
-![After Micro USB soldering](/documentation/images/maudio_step4.png)
-
-- Stick the Arduino board with the pedal with some good melted glue (and let it dry)
-
-![After sticking the Arduino](/documentation/images/maudio_step5.png)
+![After sticking the Arduino](/documentation/images/maudio_inside_after.png)
 
 - Test the pedal with you DAW
 
-![Pedal test](/documentation/images/maudio_test.png)
+> The pedal in high position
+
+![Pedal test](/documentation/images/maudio_wah_high_position.png)
+
+> The pedal in low position
+
+![Pedal test](/documentation/images/maudio_wah_low_position.png)
 
 - Close the M-AUDIO pedal.
 

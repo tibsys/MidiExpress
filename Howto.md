@@ -50,6 +50,7 @@ This page gathers some helpful documentation related to AVR, MIDI and enclosures
 - http://www.takachi-enclosure.com/data/c16-17/SU.pdf
 - http://www.takachi-enclosure.com/data/c16-17/SW.pdf
 - https://www.astuces-pratiques.fr/electronique/comment-brancher-un-potentiometre
+- https://components101.com/sites/default/files/component_pin/potentiometer-pinout.png
 
 ## Notes
 - M-Audio EX P USB cable is 1/4"

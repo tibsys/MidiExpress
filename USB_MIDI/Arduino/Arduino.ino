@@ -23,9 +23,9 @@
  * Constants
  */
 const bool DEBUG = false;
-const int PEDAL_POSITION_INPUT = 0;  //A0 input
-const uint8_t PEDAL_MAX_CURRENT = 1023; //Maximum value read on the input pin
-const uint8_t PEDAL_MIN_CURRENT = PEDAL_MAX_CURRENT/2; //Minimum value read on the input pin
+const int PEDAL_POSITION_INPUT = A1;  //A1 input
+const int PEDAL_MAX_CURRENT = 1023; //Maximum value read on the input pin
+const int PEDAL_MIN_CURRENT = 0; //Minimum value read on the input pin
 const uint8_t PEDAL_MAX_MIDI = 127; //Maximum value in MIDI CC
 const uint8_t PEDAL_MIN_MIDI = 0; //Minimum value in MIDI CC
 const uint8_t MIDI_CC_FOOTCONTROLLER = 4; //Value for Foot Controller Control Change message
@@ -50,12 +50,12 @@ void loop() {
   if(pedalPosition != currentPedalPosition) {
     sendPedalPosition(pedalPosition);
     currentPedalPosition = pedalPosition;    
-  } 
 
-  if(DEBUG) {
+    if(DEBUG) {
       Serial.print("Current pedal position=");
       Serial.println(currentPedalPosition);
     }
+  }   
 }
 
 /**
@@ -86,7 +86,9 @@ void sendControlChange(byte control, byte value) {
 uint8_t readPosition()
 {
   int val = analogRead(PEDAL_POSITION_INPUT);
-  uint8_t pedalPosition = (uint8_t) (map(val, PEDAL_MIN_CURRENT, PEDAL_MAX_CURRENT, PEDAL_MIN_MIDI, PEDAL_MAX_MIDI));
+  /*Serial.print("val=");
+  Serial.println(val);*/
+  return (uint8_t) (map(val, PEDAL_MIN_CURRENT, PEDAL_MAX_CURRENT, PEDAL_MIN_MIDI, PEDAL_MAX_MIDI));  
   //Serial.print("pedal position:");
   //Serial.println(pedalPosition);
 }
