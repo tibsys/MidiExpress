@@ -1,13 +1,16 @@
 /*
    This program manages the USB expression pedal.
 
+   Dependencies:
+   - MIDIUSB library. To install it, use the library manager in Arduino IDE.
+
    The hardware is based on
    - M-AUDIO EX-P expression pedal
    - Arduino Pro Micro board
 
    The pedal is based on a voltage divider. We send the current VCC (+5V) in the pedal
-   circuit and mesure it on the A0 analog PIN.
-   Depending on the pedal position, the current measured on A0 is between 2.5V (pedal down) and 5V (pedal up).
+   circuit and mesure it on the A1 analog PIN.
+   Depending on the pedal position, the current measured on A1 is between 2.5V (pedal down) and 5V (pedal up).
    The position is translated to a value between 0 and 127 using the MIDI CC 4.
 
    Created: 2019-04-17

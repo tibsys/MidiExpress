@@ -1,25 +1,15 @@
-# MidiExpress
+# A MIDI-USB expression pedal for 25 Euros
 
-MIDIExpress is a MIDI-PC interface originaly designed to connect an expression pedal with only Jack connector to a PC.
+MIDIExpress is a MIDI-PC interface originaly designed to connect an expression pedal to a PC or an iPad using USB.
 
-Eventually, we decided to create 3 devices:
-- a USB-MIDI expression pedal which can be directly connected to a PC.
-- a Jack-USB device which is able to connect a Jack pedal to a PC.
-- a Jack-DIN device which is able to connect a Jack pedal to a MIDI controller.
+## Current version
 
-## Current status
-
-The project is currently under design. The proof-of-concept has been realized and we are now designing the first device (USB-MIDI expression pedal).
-
-- USB-MIDI expression pedal: version 1.0
-- Jack-USB: not started
-- Jack-DIN: not started
-
-Status updated on 2019-04-15.
+**Version 1.0**
 
 ## Licensing
 
 The design and source codes are provided freely under a closed licence. It makes you able to implement the whole project for your own usage but not to sell it.
+
 If you want to use it in a commercial project please contact me at tristan.israel@tibsys.com.
 
 ## IMPORTANT: USB device PID and VID
@@ -28,55 +18,107 @@ The current values for PID and VID are random values (PID=0x2340, VID=Ox8030). T
 
 ## Cost
 
-Estimated cost of each device is detailed in [this page](costs.md). 
+_Prices include VAT 20%_
 
-You can buy prebuilt devices by sending an email to tristan.israel@tibsys.com.
+| Part              | Unit (€) | Qty | Sub-total (€) |
+|-------------------|----------|-----|---------------|
+| M-AUDIO EX-P      | 16.00    | 1   | 16.00         |
+| ATmega 32u4       | 4.00     | 1   | 4.00          |
+| USB cable (1)     | 2.60     | 1   | 2.60          |
+| USB connector (2) | 1.70     | 1   | 1.70          |
+| Small parts       | 0.50     | -   | 0.50          |
+|-------------------|----------|-----|---------------|
+| Total             | 24.80    | 1   | 24.80         |
+
+(1): Bare USB cable
+(2): USB Micro B connector
+
+If you dont' want to do it yourself, please contact me at tristan.israel@tibsys.com.
 
 ## Requirements
 
 - provide PC connectivity to an expression with a Jack connector
 - ensure compatibility with all DAWs and MIDI controllers
-- provide firmware update capabilities (using USB)
 
 ## Presentation
 
 The project consists in an electronic device which is responsible of converting the pedal into a MIDI device. 
 
-### USB-MIDI expression pedal
-
-[See README.md for this sub-project](USB_MIDI/README.md)
-
-### Jack-USB connector
-
-_The design is not fixed yet_
-
-[See README.md for this sub-project](JACK_USB/README.md)
-
-### Jack-DIN connector
-
-[See README.md for this sub-project](JACK_DIN/README.md)
-
-## Software design
-
-### Firmware
-
-More details to come.
-
-### Upgrade software
-
-This software is coded in C++-11 with Qt5. It is designed to make some configuration in the Arduino board in order to change or fine-tune its behaviour.
-
-### Configuration software
-
-This software is coded in C++-11 with JUCE and can be used as a standalone application or a VST/AU plugin so you can record different settings in your patches.
-
-## Dependencies
-
-Here comes the list of dependencies for this project.
-
 ## Licenses and credits
 
 - Arduino schemas made with [Fritzing](http://fritzing.org/).
 - Configuration software made with Qt 5.12.0 community edition.
-- Graphics:
-    - *to be completed*
+
+# Do It Yourself
+
+![USB-MIDI expression pedal based on M-AUDIO EX-P](/documentation/images/maudio_exp.png)
+
+The USB-MIDI expression pedal is based on an M-AUDIO EX-P expression pedal (around 16 Euros on Amazon). The electronic device (see Jack-USB section) is embedded into the pedal and the original Jack cable is replaced with a USB cable.
+
+This device is powered by USB.
+
+## Architecture
+
+> The original M-Audio EX-P pedal contains a switch for polarity inversion and a potentiometer for the sensitivity.
+
+![Original M-Audio EX-P pedal schematic](/documentation/images/maudio_exp_schematic.png)
+
+> We disabled the polarity switch and kept the sensitivity potentiometer to give manual control on the expression range.
+
+![Modified M-Audio EX-P pedal schematic](/documentation/images/USB-MIDI_schematics.png)
+
+## Protocol
+
+The pedal does not use any specific channel, it communicates with the *ALL* channel (1-16).
+
+**Pedal -> DAW**
+
+The pedal only sends *Foot Controller* Control Change (MIDI CC 4) on *ALL* channel. Values are between 0 (pedal open) and 128 (pedal closed).
+
+**DAW -> Pedal**
+
+All messages are ignored.
+
+## Mounting procedure
+
+> Before mounting the pedal you'll have to flash the Arduino program. (See Arduino folder). 
+
+If you want the device to have a more friendly name than *Arduino Leonardo*, install the board description files into Arduino IDE (see support folder) and use the *MIDI Expression pedal* board instead of *Arduino Leonardo*.
+
+> All the soldering should be done on the top side of the Arduino in order to be able to stick it to the bottom of the pedal.
+
+- Open the M-AUDIO pedal by unscrewing all screws
+
+![Inside not-modified M-AUDIO EX-P pedal](/documentation/images/maudio_inside.png)
+
+- Desolder the polarity switch wires (1)
+- Cut the JACK cable and remove the grommet, we will reuse it later
+
+![Get the grommet](/documentation/images/maudio_cable_cut_and_reuse.png)
+
+- Solder the black wire (4) of sensitivity potentiometer (3) to Arduino GND
+- Solder the black wire (5) of expression pedal potentiometer (2) to Arduino VCC
+> The wire is connected to the input of the potentiometer
+- Solder the black wire (6) of expression pedal potentiometer (2) to Arduino A0 
+> The wire is connected to the output of the potentiometer
+
+- Insert the bare USB cable into the grommet and solder the Micro USB connector
+- Add some black tape on the USB cable in order to fix it with the grommet (the tape sticky side on the cable, the cable will adhere to the grommet by friction)
+- Insert the Micro USB connector into the Arduino USB port
+- Stick the Arduino board to the bottom of the pedal with some good melted glue (and let it dry)
+
+![After sticking the Arduino](/documentation/images/maudio_inside_after.png)
+
+- Test the pedal with you DAW
+
+> The pedal in high position
+
+![Pedal test](/documentation/images/maudio_wah_high_position.png)
+
+> The pedal in low position
+
+![Pedal test](/documentation/images/maudio_wah_low_position.png)
+
+- Close the M-AUDIO pedal.
+
+- You're done
