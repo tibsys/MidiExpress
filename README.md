@@ -1,6 +1,6 @@
 # A MIDI-USB expression pedal for 25 Euros
 
-MIDIExpress is a MIDI-PC interface originaly designed to connect an expression pedal to a PC or an iPad using USB.
+MIDIExpress is a MIDI-PC interface originaly designed to connect an expression pedal to a **PC** or an **iPad** using USB.
 
 ## Current version
 
