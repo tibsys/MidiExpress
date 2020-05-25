@@ -10,7 +10,7 @@ MIDIExpress is a MIDI-PC interface originaly designed to connect an expression p
 
 The design and source codes are provided freely under a closed licence. It makes you able to implement the whole project for your own usage but not to sell it.
 
-If you want to use it in a commercial project please contact me at tristan.israel@tibsys.com.
+If you want to use it in a commercial project please contact me at tristan@alefbet.net.
 
 ## IMPORTANT: USB device PID and VID
 
@@ -33,7 +33,7 @@ _Prices include VAT 20%_
 (1): Bare USB cable
 (2): USB Micro B connector
 
-If you dont' want to do it yourself, please contact me at tristan.israel@tibsys.com.
+If you dont' want to do it yourself, please contact me at tristan@alefbet.net
 
 ## Requirements
 
