@@ -14,7 +14,7 @@
    The position is translated to a value between 0 and 127 using the MIDI CC 4.
 
    Created: 2019-04-17
-   Version: 1.0
+   Version: 1.1
    Author: Tristan Israël <tristan.israel@tibsys.com>
    
    https://www.tibsys.com/
@@ -76,6 +76,7 @@ void sendPedalPosition(uint8_t position) {
 void sendControlChange(byte control, byte value) {
   midiEventPacket_t event = {0xB, 0xB0, control, value};
   MidiUSB.sendMIDI(event);
+  MidiUSB.flush();
 }
 
 /**
